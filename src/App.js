@@ -1,13 +1,16 @@
-import { Button, Flex, Heading, Input, Select, Spinner } from '@chakra-ui/react'
+import { Button, Flex, Image, Input, Select, Spinner } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
+import RickAndMorty from './img/rick-and-morty-title.png'
+import InfiniteScroll from 'react-infinite-scroll-component'
 import Character from './Character'
 
 function App() {
   const [characters, setCharacter] = useState([])
-  const [info, setInfo] = useState({})
   const [isLoading, setIsLoading] = useState(false)
   const [searchCharacter, setSearchCharacter] = useState('')
   const [status, setStatus] = useState('')
+  const [hasMore, setHasMore] = useState(true)
+  const [nextPage, setNextPage] = useState('')
 
   useEffect(() => {
     const characters = getCharacters()
@@ -18,39 +21,33 @@ function App() {
   const getCharacters = async () => {
     setIsLoading(true)
 
-    const data = await fetch('https://rickandmortyapi.com/api/character')
-      .then((response) => response.json())
-      .then((data) => data)
+    const data = await fetch('https://rickandmortyapi.com/api/character').then(
+      (response) => response.json()
+    )
 
-    setInfo(data.info)
+    setNextPage(data.info.next)
     setCharacter(data.results)
     setIsLoading(false)
   }
 
-  // const reSearch = async () => {
-  //   setIsLoading(true)
-  //   const nextPage = info.next
-
-  //   const data = await fetch(nextPage)
-  //     .then((response) => response.json())
-  //     .then((data) => data)
-
-  //   setInfo(data.info)
-  //   const newData = characters.concat(data.results)
-  //   setCharacter(newData)
-  //   setIsLoading(false)
-  // }
+  const reSearch = async () => {
+    setIsLoading(true)
+    const data = await fetch(nextPage).then((response) => response.json())
+    setNextPage(data.info.next)
+    data.info.next ? setHasMore(true) : setHasMore(false)
+    const newData = characters.concat(data.results)
+    setCharacter(newData)
+    setIsLoading(false)
+  }
 
   const findCharacter = async () => {
     setIsLoading(true)
-
     const data = await fetch(
       `https://rickandmortyapi.com/api/character/?name=${searchCharacter}&status=${status}`
-    )
-      .then((response) => response.json())
-      .then((data) => data)
+    ).then((response) => response.json())
 
-    setInfo(data.info)
+    data.info.next ? setHasMore(true) : setHasMore(false)
+    setNextPage(data.info.next)
     setCharacter(data.error ? [] : data.results)
     setIsLoading(false)
   }
@@ -72,7 +69,9 @@ function App() {
       flexDir="column"
       width="100hv"
     >
-      <Heading>Rick And Morty</Heading>
+      <Flex>
+        <Image width="400px" src={RickAndMorty} />
+      </Flex>
       <Flex marginTop="30px" alignItems="center" justifyContent="center">
         <Input
           variant="filled"
@@ -99,18 +98,30 @@ function App() {
           Buscar &nbsp; {isLoading && <Spinner />}
         </Button>
       </Flex>
-      <Flex
-        width="100%"
-        marginTop="50px"
-        padding="25px"
-        flexWrap="wrap"
-        gridGap="50px"
+      <InfiniteScroll
+        dataLength={characters.length}
+        next={reSearch}
+        hasMore={hasMore}
+        loader={
+          <Flex justifyContent="center">
+            <Spinner size="xl" />
+          </Flex>
+        }
+        style={{ overflow: 'hidden' }}
       >
-        {!isLoading &&
-          characters.map((character, index) => (
-            <Character key={index} info={character} />
-          ))}
-      </Flex>
+        <Flex
+          width="100%"
+          marginTop="50px"
+          padding="25px"
+          flexWrap="wrap"
+          gridGap="50px"
+        >
+          {characters.length > 0 &&
+            characters.map((character, index) => (
+              <Character key={index} info={character} />
+            ))}
+        </Flex>
+      </InfiniteScroll>
     </Flex>
   )
 }
