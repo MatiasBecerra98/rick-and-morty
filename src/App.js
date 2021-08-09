@@ -72,7 +72,12 @@ function App() {
       <Flex>
         <Image width="400px" src={RickAndMorty} />
       </Flex>
-      <Flex marginTop="30px" alignItems="center" justifyContent="center">
+      <Flex
+        width="100%"
+        marginTop="30px"
+        alignItems="center"
+        justifyContent="center"
+      >
         <Input
           variant="filled"
           placeholder="Find Character"
