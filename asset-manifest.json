@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/rick-and-morty/static/css/main.d3028639.chunk.css",
-    "main.js": "/rick-and-morty/static/js/main.049e18a2.chunk.js",
-    "main.js.map": "/rick-and-morty/static/js/main.049e18a2.chunk.js.map",
-    "runtime-main.js": "/rick-and-morty/static/js/runtime-main.424c7883.js",
-    "runtime-main.js.map": "/rick-and-morty/static/js/runtime-main.424c7883.js.map",
-    "static/js/2.eac5d031.chunk.js": "/rick-and-morty/static/js/2.eac5d031.chunk.js",
-    "static/js/2.eac5d031.chunk.js.map": "/rick-and-morty/static/js/2.eac5d031.chunk.js.map",
-    "static/js/3.387b55c5.chunk.js": "/rick-and-morty/static/js/3.387b55c5.chunk.js",
-    "static/js/3.387b55c5.chunk.js.map": "/rick-and-morty/static/js/3.387b55c5.chunk.js.map",
+    "main.css": "/rick-and-morty/static/css/main.dd121167.chunk.css",
+    "main.js": "/rick-and-morty/static/js/main.8b4e8a7c.chunk.js",
+    "main.js.map": "/rick-and-morty/static/js/main.8b4e8a7c.chunk.js.map",
+    "runtime-main.js": "/rick-and-morty/static/js/runtime-main.03cdf83b.js",
+    "runtime-main.js.map": "/rick-and-morty/static/js/runtime-main.03cdf83b.js.map",
+    "static/js/2.679e5765.chunk.js": "/rick-and-morty/static/js/2.679e5765.chunk.js",
+    "static/js/2.679e5765.chunk.js.map": "/rick-and-morty/static/js/2.679e5765.chunk.js.map",
+    "static/js/3.539f7538.chunk.js": "/rick-and-morty/static/js/3.539f7538.chunk.js",
+    "static/js/3.539f7538.chunk.js.map": "/rick-and-morty/static/js/3.539f7538.chunk.js.map",
     "index.html": "/rick-and-morty/index.html",
-    "static/css/main.d3028639.chunk.css.map": "/rick-and-morty/static/css/main.d3028639.chunk.css.map",
-    "static/js/2.eac5d031.chunk.js.LICENSE.txt": "/rick-and-morty/static/js/2.eac5d031.chunk.js.LICENSE.txt",
+    "static/css/main.dd121167.chunk.css.map": "/rick-and-morty/static/css/main.dd121167.chunk.css.map",
+    "static/js/2.679e5765.chunk.js.LICENSE.txt": "/rick-and-morty/static/js/2.679e5765.chunk.js.LICENSE.txt",
     "static/media/rick-and-morty-title.047c4ff8.png": "/rick-and-morty/static/media/rick-and-morty-title.047c4ff8.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.424c7883.js",
-    "static/js/2.eac5d031.chunk.js",
-    "static/css/main.d3028639.chunk.css",
-    "static/js/main.049e18a2.chunk.js"
+    "static/js/runtime-main.03cdf83b.js",
+    "static/js/2.679e5765.chunk.js",
+    "static/css/main.dd121167.chunk.css",
+    "static/js/main.8b4e8a7c.chunk.js"
   ]
 }
